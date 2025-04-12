@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Golden Bull Coffee | Shop</title>
+        <link rel="stylesheet" href="coffeeShop.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/69b72c9ece.js" crossorigin="anonymous"></script>
+        <meta name="description" content="Explore our wide selection of premium coffee beans, ground coffee, and stylish coffee merchandise.">
+        <meta name="keywords" content="coffee shop, buy coffee online, coffee beans, ground coffee, coffee merchandise">
+        <meta name="author" content="SuperbWebDev">
+    </head>
+
+<body>
+
+    <div id="cart-notification" class="cart-modal hidden">
+        <div class="cart-modal-content">
+            <button id="close-modal" class="btn" style="float: right;">X</button>
+            <h4>Product Added to Cart</h4>
+            <p id="cart-summary"></p>
+            <div class="cart-modal-actions">
+                <button id="continue-shopping" class="btn">Continue Shopping</button>
+                <button id="checkout" class="btn">Check Out</button>
+            </div>
+        </div>
+    </div>
+
+    <section id="page-header">
+        <h2>#shop with us</h2>
+        <p>Save a bunch</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section-padding1">
+        <div class="prod-container" id="shop-products">
+            <!-- Product cards will be dynamically generated here -->
+        </div>
+    </section>
+
+    <section id="pagination" class="section-padding1">
+        <!-- Pagination links will be dynamically generated here -->
+    </section>
+
+    <section id="newsletter" class="section-padding1 section-margin1">
+        <div class="newstext">
+            <h4>Sign up for our newsletter</h4>
+            <p>Get email updates and <span>special offers</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign up</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

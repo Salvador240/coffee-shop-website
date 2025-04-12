@@ -1,0 +1,3077 @@
+/* ===========================
+   Global Styles
+=========================== */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Primary Colors */
+    --primary-bg: #1A1A1A; /* Matte Black */
+    --primary-text: #F5F5DC; /* Creamy White */
+    --primary-accent: #D4AF37; /* Matte Gold */
+    --secondary-accent: #D7B377; /* Golden Beige */
+    --secondary-bg: #2C2C2C; /* Dark Gray */
+    --secondary-text: #333333; /* Charcoal Gray */
+
+    /* Additional Colors */
+    --highlight-color: #FFFFFF; /* White */
+    --border-color: #CCCCCC; /* Light Gray */
+    --hover-color: #FFD43B; /* Lighter Goldenrod */
+    --error-color: #721c24; /* Error Red */
+    --success-color: #155724; /* Success Green */
+}
+
+body {
+    margin: 0;
+    background-color: var(--primary-bg); /* Matte Black */
+    color: var(--primary-text); /* Creamy White */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+body, p {
+    font-family: 'Raleway', sans-serif;
+}
+
+.section-padding1 {
+    padding: 40px 80px;
+}
+
+.section-margin1 {
+    margin: 40px 0;
+}
+
+#wrapper {
+    background: linear-gradient(#ffffff, rgb(226, 170, 101));
+}
+
+/* ===========================
+   Header Section
+=========================== */
+#header .logo {
+    height: 75px;
+    width: 75px;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: var(--primary-bg); /* Matte Black */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 55px;
+}
+
+/* ===========================
+   Navbar Styles
+=========================== */
+#navbar {
+    display: flex; /* Ensure the navbar is visible on larger screens */
+    align-items: center;
+    justify-content: center;
+    position: static; /* Reset position for full-size screens */
+    background-color: transparent; /* No background for full-size screens */
+    width: auto; /* Reset width */
+    height: auto; /* Reset height */
+    box-shadow: none; /* Remove box shadow */
+    padding: 0; /* Reset padding */
+    transition: none; /* Remove transition for full-size screens */
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-text); /* Creamy White */
+    transition: color 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: var(--primary-accent); /* Matte Gold */
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: var(--primary-accent); /* Matte Gold */
+    position: absolute;
+    bottom: -4px;
+    right: 20px;
+}
+
+/* ===========================
+   Mobile Navbar (Hamburger Menu)
+=========================== */
+#mobile {
+    display: none;
+}
+
+#mobile #bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#mobile #bar span {
+    display: block;
+    height: 3px;
+    background: var(--primary-accent); /* Matte Gold */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Transform hamburger menu into a cross */
+#mobile #bar.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#mobile #bar.open span:nth-child(2) {
+    opacity: 0;
+}
+
+#mobile #bar.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===========================
+   Hero Section
+=========================== */
+#hero {
+    position: relative;
+    background-image: url("images/homeHero.jpg");
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    /* background-size: contain; 
+    background-repeat: no-repeat;  */
+    background-position: center;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    justify-content: center; /* Center elements vertically */
+    text-align: center;
+    color: var(--primary-text); /* Creamy White */
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
+}
+
+#hero h4 {
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-accent); /* Golden Beige */
+    margin-bottom: 15px;
+    letter-spacing: 2px; /* Add spacing for a modern look */
+}
+
+#hero h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Add spacing for a premium feel */
+}
+
+#hero h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 72px;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent)); /* Gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--primary-accent); /* Fallback color for unsupported browsers */
+    margin-bottom: 20px;
+}
+
+#hero p {
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--primary-text); /* Creamy White */
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn {
+    position: relative;
+    z-index: 2;
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px; /* Rounded corners for a modern look */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: all 0.3s ease;
+    text-decoration: none; /* Remove underline */
+}
+
+.btn:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* ===========================
+   Features Section
+=========================== */
+#features {
+    background-color: var(--primary-text); /* Creamy White */
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#features .features-box {
+    background-color: #6F4E37; /* Coffee Brown */
+    color: #F5F5DC; /* Creamy White */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#features .features-box:hover {
+    transform: translateY(-5px);
+}
+
+#features .features-box img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#features .features-box h6 {
+    display: inline-block;
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: goldenrod;
+    background-color: brown;
+}
+
+#features .features-box:nth-child(2) h6 {
+    background-color: blue;
+}
+
+#features .features-box:nth-child(3) h6 {
+    background-color: green;
+}
+
+#features .features-box:nth-child(4) h6 {
+    background-color: yellow;
+}
+
+#features .features-box:nth-child(5) h6 {
+    background-color: orangered;
+}
+
+/* ===========================
+   Products Section
+=========================== */
+#products {
+    background-color: var(--primary-bg); /* Matte Black */
+    text-align: center;
+    padding: 40px 80px;
+}
+
+#products h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 10px;
+}
+
+#products p {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-accent); /* Golden Beige */
+    margin-bottom: 20px;
+}
+
+#products .prod-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+#products .prod-card {
+    width: 23%;
+    min-width: 250px;
+    background-color: #2C2C2C; /* Dark Gray */
+    border: 1px solid var(--primary-accent); /* Matte Gold */
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Space out content */
+    height: 440px; /* Set a fixed height for consistency */
+}
+
+#products .prod-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+    transform: translateY(-5px); /* Lift effect */
+    border-color: var(--secondary-accent); /* Golden Beige */
+}
+
+#products .prod-card img {
+    width: 100%;
+    height: 180px; /* Fixed height for images */
+    object-fit: cover; /* Ensure the image fits well */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+#products .prod-card img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+#products .prod-card .prod-desc {
+    text-align: start;
+    padding: 10px 0;
+}
+
+#products .prod-card .prod-desc span {
+    color: var(--border-color); /* Light Gray */
+    font-size: 12px;
+}
+
+#products .prod-card .prod-desc h5 {
+    padding-top: 7px;
+    color: var(--highlight-color); /* White */
+    font-size: 14px;
+}
+
+#products .prod-card .prod-desc h4 {
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-accent); /* Matte Gold */
+}
+
+#products .prod-card .cart {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-accent); /* Matte Gold */
+    font-weight: 500;
+    border: 1px solid var(--secondary-accent); /* Golden Beige */
+    position: absolute;
+    cursor: pointer;
+    bottom: 20px;
+    right: 10px;
+    color: var(--primary-bg); /* Matte Black */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#products .prod-card .cart:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: scale(1.1); /* Slight enlargement on hover */
+}
+
+/* Cart Icon Styling */
+.fa-shopping-cart {
+    font-size: 20px;
+    margin: 0 8px;
+    color: var(--primary-accent); /* Matte Gold */
+    transition: color 0.3s ease;
+}
+
+.fa-shopping-cart:hover {
+    color: var(--primary-text); /* Creamy White */
+}
+
+/* ===========================
+   Banner Section
+=========================== */
+#banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url("images/homeHero.jpg");
+    width: 100%;
+    height: 50vh; /* Increased height for a more immersive look */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    margin: 40px 0; /* Add spacing around the banner */
+}
+
+#banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
+}
+
+#banner h4 {
+    position: relative;
+    z-index: 2;
+    color: var(--secondary-accent); /* Golden Beige */
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 2px; /* Add spacing for a modern look */
+    margin-bottom: 10px;
+}
+
+#banner h2 {
+    position: relative;
+    z-index: 2;
+    color: var(--highlight-color); /* White */
+    font-size: 48px; /* Larger font for emphasis */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Add spacing for a premium feel */
+    margin-bottom: 20px;
+}
+
+#banner h2 span {
+    color: var(--primary-accent); /* Matte Gold */
+}
+
+#banner button {
+    position: relative;
+    z-index: 2;
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px; /* Rounded corners for a modern look */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: all 0.3s ease;
+}
+
+#banner button:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* ===========================
+   Small Banner Section
+=========================== */
+#sm-banner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; /* Add spacing between banners */
+    margin: 40px 0;
+}
+
+#sm-banner .banner-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-image: url("images/homeHero.jpg");
+    width: 48%; /* Adjust width for better alignment */
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#sm-banner .banner-box:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+#sm-banner h4 {
+    color: var(--highlight-color); /* White */
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+#sm-banner h2 {
+    color: var(--highlight-color); /* White */
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+#sm-banner p {
+    color: var(--secondary-accent); /* Golden Beige */
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+#sm-banner .btn {
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#sm-banner .btn:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+/* ===========================
+   Triple Banner Section
+=========================== */
+#triple-banner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; /* Add spacing between banners */
+    padding: 0 40px;
+}
+
+#triple-banner .banner-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-image: url("images/homeHero.jpg");
+    width: 30%; /* Adjust width for better alignment */
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#triple-banner .banner-box:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+#triple-banner h2 {
+    color: var(--highlight-color); /* White */
+    font-weight: 900;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+#triple-banner p {
+    color: var(--secondary-accent); /* Golden Beige */
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+#triple-banner .btn {
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#triple-banner .btn:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+/* ===========================
+   Newsletter Section
+=========================== */
+#newsletter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-image: url("images/homeHero.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #041e42; /* Navy Blue */
+    background-size: cover;
+    padding: 40px 20px; /* Add padding for better spacing */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#newsletter h4 {
+    font-size: 24px; /* Slightly larger font for emphasis */
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 10px;
+}
+
+#newsletter p {
+    font-size: 16px; /* Slightly larger font for readability */
+    font-weight: 400;
+    color: var(--border-color); /* Light Gray */
+    margin-bottom: 20px;
+}
+
+#newsletter span {
+    color: var(--primary-accent); /* Matte Gold */
+    font-weight: 600;
+}
+
+#newsletter .form {
+    display: flex;
+    width: 50%; /* Adjust width for better alignment */
+    max-width: 600px; /* Limit the maximum width */
+    gap: 10px; /* Add spacing between input and button */
+}
+
+#newsletter input {
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid var(--border-color); /* Light Gray */
+    border-radius: 4px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#newsletter input:focus {
+    border-color: var(--primary-accent); /* Matte Gold */
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* Subtle glow effect */
+}
+
+#newsletter button {
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    white-space: nowrap;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 3.125rem;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#newsletter button:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* ===========================
+   Footer Section
+=========================== */
+footer {
+    background: linear-gradient(180deg, #1A1A1A, #121212); /* Subtle gradient for depth */
+    color: var(--primary-text); /* Creamy White */
+    padding: 40px 20px;
+    border-top: 2px solid var(--primary-accent); /* Matte Gold border for a premium look */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; /* Add spacing between columns */
+}
+
+footer .col {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add spacing between elements */
+}
+
+footer h4 {
+    font-size: 16px; /* Slightly larger font for emphasis */
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 15px;
+}
+
+footer p {
+    font-size: 14px; /* Slightly larger font for readability */
+    margin: 0 0 8px 0;
+    line-height: 1.6;
+    color: var(--border-color); /* Light Gray */
+}
+
+footer a {
+    color: var(--primary-accent); /* Matte Gold */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+footer a:hover {
+    color: var(--secondary-accent); /* Golden Beige */
+    transform: translateX(5px); /* Subtle slide effect on hover */
+}
+
+footer .social-icons {
+    display: flex;
+    gap: 10px; /* Add spacing between social icons */
+}
+
+footer .social-icons a {
+    color: var(--primary-accent); /* Matte Gold */
+    font-size: 18px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: var(--secondary-accent); /* Golden Beige */
+    transform: scale(1.2); /* Slight enlargement on hover */
+}
+
+footer .copiright {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+    color: var(--border-color); /* Light Gray */
+    border-top: 1px solid var(--border-color); /* Subtle divider */
+    padding-top: 10px;
+}
+
+/* ===========================
+   Shop Page Header
+=========================== */
+#page-header {
+    position: relative;
+    background-image: url("images/shopHero.jpg");
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 14px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#page-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
+}
+
+#page-header h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Add spacing for a modern look */
+    margin-bottom: 10px;
+}
+
+#page-header p {
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-accent); /* Golden Beige */
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+/* ===========================
+   Single Product Page Styling
+=========================== */
+#prod-details {
+    display: flex;
+    margin-top: 20px;
+    gap: 50px; /* Add spacing between image and details */
+    flex-wrap: wrap; /* Ensure responsiveness */
+}
+
+#prod-details .single-prod-image {
+    width: 40%;
+    max-width: 480px; /* Limit the maximum width for better scaling */
+    margin-right: 0; /* Remove margin-right for better alignment */
+    position: relative; /* Ensure proper positioning for child elements */
+}
+
+#prod-details .single-prod-image img#mainImage {
+    width: 100%; /* Ensure the main image takes full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    object-fit: cover; /* Ensure the image fits well */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+#prod-details .single-prod-image img#mainImage:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.small-images-group {
+    display: flex;
+    justify-content: space-between; /* Space out the small images evenly */
+    margin-top: 15px;
+    gap: 10px; /* Add spacing between small images */
+    width: 100%; /* Ensure the group stays within the width of the main image */
+}
+
+.small-image-col {
+    flex: 1 1 calc(33.33% - 10px); /* Each small image takes one-third of the main image width */
+    max-width: calc(33.33% - 10px); /* Limit the width of each small image */
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.small-image-col img {
+    width: 100%; /* Ensure small images take full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    object-fit: cover; /* Ensure the image fits well */
+}
+
+.small-image-col:hover img {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+#prod-details .single-prod-details {
+    width: 50%;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add spacing between elements */
+}
+
+#prod-details .single-prod-details h2 {
+    font-size: 2rem; /* Larger font size for emphasis */
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 10px;
+}
+
+#prod-details .single-prod-details h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-accent); /* Matte Gold */
+    margin-bottom: 10px;
+}
+
+#prod-details .single-prod-details select {
+    display: block;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color); /* Light Gray */
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#prod-details .single-prod-details select:focus {
+    border-color: var(--primary-accent); /* Matte Gold */
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* Subtle glow effect */
+}
+
+#prod-details .single-prod-details input {
+    width: 60px;
+    height: 47px;
+    padding-left: 10px;
+    font-size: 1rem;
+    margin-right: 10px;
+    border: 1px solid var(--border-color); /* Light Gray */
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#prod-details .single-prod-details input:focus {
+    border-color: var(--primary-accent); /* Matte Gold */
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* Subtle glow effect */
+}
+
+#prod-details .single-prod-details button {
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#prod-details .single-prod-details button:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+#prod-details .single-prod-details span {
+    line-height: 1.8;
+    font-size: 1rem;
+    color: var(--primary-text); /* Creamy White */
+}
+
+/* ===========================
+   Product Content Section
+=========================== */
+#prod-details .product-content {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--primary-bg); /* Matte Black */
+    border: 1px solid var(--border-color); /* Light Gray */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--primary-text); /* Creamy White */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    width: 100%; /* Ensure it spans the full width */
+}
+
+#prod-details .product-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--highlight-color); /* White */
+}
+
+#prod-details .product-content p {
+    margin-bottom: 15px;
+    text-align: justify; /* Justify text for a clean look */
+}
+
+#prod-details .product-content img {
+    width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for images */
+}
+
+/* ===========================
+   Blog Page Styling
+=========================== */
+#page-header.blog-header {
+    position: relative;
+    background-image: url("images/aboutHero.jpg");
+    width: 100%;
+    height: 50vh; /* Adjusted height for better balance */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#page-header.blog-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
+}
+
+#page-header.blog-header h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Add spacing for a modern look */
+    margin-bottom: 10px;
+}
+
+#page-header.blog-header p {
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-accent); /* Golden Beige */
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+#blog {
+    padding: 100px 80px 0 80px; /* Adjusted padding for better spacing */
+}
+
+#blog .blog-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 60px; /* Reduced padding for compact design */
+    border-bottom: 1px solid var(--border-color); /* Add a subtle divider */
+    margin-bottom: 40px;
+}
+
+#blog .blog-box:last-child {
+    border-bottom: none; /* Remove border for the last blog box */
+}
+
+#blog .blog-image {
+    width: 50%;
+    margin-right: 40px;
+    transition: transform 0.3s ease;
+}
+
+#blog .blog-image:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+#blog img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#blog .blog-details {
+    width: 50%;
+}
+
+#blog .blog-details a {
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--primary-accent); /* Matte Gold */
+    font-weight: 700;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+#blog .blog-details a::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: var(--primary-accent); /* Matte Gold */
+    position: absolute;
+    top: 4px;
+    right: -60px;
+    transition: background-color 0.3s ease;
+}
+
+#blog .blog-details a:hover {
+    color: var(--secondary-accent); /* Golden Beige */
+}
+
+#blog .blog-details a:hover::after {
+    background-color: var(--secondary-accent); /* Golden Beige */
+}
+
+#blog .blog-details h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 10px;
+}
+
+#blog .blog-details p {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--primary-text); /* Creamy White */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#blog .blog-box h1 {
+    position: absolute;
+    top: -122px;
+    left: 0;
+    font-size: 70px;
+    color: #c9cbce; /* Subtle background text */
+    z-index: -1;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 900;
+    opacity: 0.1; /* Faint background text for a modern look */
+}
+
+/* ===========================
+   Single Blog Post Page
+=========================== */
+#blog-post {
+    padding: 40px 20px; /* Increased padding for better spacing */
+    max-width: 900px; /* Slightly wider for better readability */
+    margin: 0 auto;
+    text-align: left;
+    background-color: var(--primary-bg); /* Matte Black */
+    color: var(--primary-text); /* Creamy White */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#blog-post h1 {
+    font-size: 2.5rem; /* Larger font size for emphasis */
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Add spacing for a modern look */
+}
+
+#blog-post p {
+    font-size: 1.125rem; /* Slightly larger font for readability */
+    line-height: 1.8; /* Increased line height for better readability */
+    margin-bottom: 25px;
+    color: var(--primary-text); /* Creamy White */
+    text-align: justify; /* Justify text for a clean look */
+}
+
+#blog-post img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease;
+}
+
+#blog-post blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--secondary-accent); /* Golden Beige */
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 4px solid var(--primary-accent); /* Matte Gold */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background for emphasis */
+}
+
+#blog-post a {
+    color: var(--primary-accent); /* Matte Gold */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+#blog-post a:hover {
+    color: var(--secondary-accent); /* Golden Beige */
+}
+
+#blog-post ul,
+#blog-post ol {
+    margin: 20px 0;
+    padding-left: 40px;
+}
+
+#blog-post ul li,
+#blog-post ol li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--primary-text); /* Creamy White */
+    margin-bottom: 10px;
+}
+
+#blog-post .author {
+    margin-top: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary-accent); /* Golden Beige */
+    text-align: right;
+}
+
+#blog-post .author span {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--border-color); /* Light Gray */
+}
+
+/* ===========================
+   Pagination Styling
+=========================== */
+#pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#pagination a {
+    text-decoration: none;
+    background-color: var(--primary-accent); /* Matte Gold */
+    padding: 12px 20px;
+    border-radius: 30px; /* Rounded corners for a modern look */
+    color: var(--primary-bg); /* Matte Black */
+    font-weight: 600;
+    margin: 0 5px; /* Add spacing between links */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#pagination a:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    color: var(--primary-bg); /* Matte Black */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+#pagination a.active {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    color: var(--primary-bg); /* Matte Black */
+    font-weight: bold;
+    text-decoration: underline;
+    transform: scale(1.1); /* Slight enlargement for active link */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Highlighted shadow */
+}
+
+#pagination a i {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ===========================
+   About Page Styling
+=========================== */
+#page-header.about-header {
+    position: relative;
+    background-image: url("images/logo0.png"); /* Use the correct path to your logo image */
+    width: 100%;
+    height: 50vh; /* Set the height to 90% of the viewport */
+    background-size: contain; /* Ensure the image is fully visible and maintains its aspect ratio */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#page-header.about-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
+}
+
+#page-header.about-header h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Add spacing for a modern look */
+    margin-bottom: 10px;
+}
+
+#page-header.about-header p {
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-accent); /* Golden Beige */
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+/* ===========================
+   About Head Section
+=========================== */
+#about-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px; /* Add spacing between image and text */
+    margin: 40px 0;
+    flex-wrap: wrap; /* Ensure responsiveness */
+    padding: 40px 20px; /* Add padding for better spacing */
+    background-color: var(--primary-bg); /* Matte Black */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#about-head img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease;
+}
+
+#about-head img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+#about-head div {
+    flex: 1;
+    padding-left: 40px;
+    color: var(--primary-text); /* Creamy White */
+}
+
+#about-head div h2 {
+    font-size: 2.5rem; /* Larger font size for emphasis */
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 20px;
+}
+
+#about-head div p {
+    font-size: 1.125rem; /* Slightly larger font for readability */
+    line-height: 1.8; /* Increased line height for better readability */
+    margin-bottom: 20px;
+    text-align: justify; /* Justify text for a clean look */
+}
+
+#about-head div abbr {
+    font-weight: bold;
+    color: var(--primary-accent); /* Matte Gold */
+    text-decoration: none;
+    cursor: help;
+}
+
+/* ===========================
+   About Values Section
+=========================== */
+#about-values {
+    padding: 40px 20px;
+    background-color: var(--primary-bg); /* Matte Black */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-bottom: 40px;
+}
+
+#about-values h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#about-values p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--primary-text); /* Creamy White */
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+#about-values ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#about-values ul li {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--primary-text); /* Creamy White */
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+#about-values ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--primary-accent); /* Matte Gold */
+    font-size: 1.25rem;
+}
+
+/* ===========================
+   About Story Section
+=========================== */
+#about-story {
+    padding: 40px 20px;
+    background-color: var(--primary-bg); /* Matte Black */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-bottom: 40px;
+}
+
+#about-story h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#about-story p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--primary-text); /* Creamy White */
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   About Team Section
+=========================== */
+#about-team {
+    padding: 40px 20px;
+    background-color: var(--primary-bg); /* Matte Black */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-bottom: 40px;
+}
+
+#about-team h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#about-team p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--primary-text); /* Creamy White */
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   About Mission Section
+=========================== */
+#about-mission {
+    padding: 40px 20px;
+    background-color: var(--primary-bg); /* Matte Black */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-bottom: 40px;
+}
+
+#about-mission h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#about-mission p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--primary-text); /* Creamy White */
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   About App Section
+=========================== */
+#about-app {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#about-app .video {
+    width: 70%;
+    height: auto;
+    margin: 30px auto 0 auto;
+    border-radius: 20px; /* Rounded corners for a modern look */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#about-app .video video {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+#about-app .video video:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* ===========================
+   Contact Page Styling
+=========================== */
+#page-header.contact-header {
+    position: relative;
+    background-image: url("images/contactHero.jpg");
+    width: 100%;
+    height: 50vh; /* Adjusted height for better balance */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#page-header.contact-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
+}
+
+#page-header.contact-header h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Add spacing for a modern look */
+    margin-bottom: 10px;
+}
+
+#page-header.contact-header p {
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-accent); /* Golden Beige */
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+/* ===========================
+   Contact Details Section
+=========================== */
+#contact-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px; /* Add spacing between details and map */
+    margin: 40px 0;
+    flex-wrap: wrap; /* Ensure responsiveness */
+}
+
+#contact-details .details {
+    width: 40%;
+    color: var(--primary-text); /* Creamy White */
+}
+
+#contact-details .details span {
+    font-size: 12px;
+    color: var(--secondary-accent); /* Golden Beige */
+}
+
+#contact-details .details h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 20px;
+}
+
+#contact-details .details h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-accent); /* Matte Gold */
+    margin-bottom: 15px;
+}
+
+#contact-details .details li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 10px 0;
+    color: var(--primary-text); /* Creamy White */
+}
+
+#contact-details .details li i {
+    font-size: 16px;
+    color: var(--primary-accent); /* Matte Gold */
+    margin-right: 15px;
+}
+
+#contact-details .details li p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#contact-details .map {
+    width: 55%;
+    height: 400px;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#contact-details .map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ===========================
+   Form Section
+=========================== */
+#form-details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensure responsiveness */
+    margin: 30px;
+    padding: 40px;
+    border: 1px solid var(--border-color); /* Light Gray */
+    border-radius: 8px; /* Rounded corners */
+    background-color: var(--primary-bg); /* Matte Black */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#form-details form {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add spacing between form elements */
+}
+
+#form-details form input,
+#form-details form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color); /* Light Gray */
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#form-details form input:focus,
+#form-details form textarea:focus {
+    border-color: var(--primary-accent); /* Matte Gold */
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* Subtle glow effect */
+}
+
+#form-details form button {
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#form-details form button:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* ===========================
+   People Section
+=========================== */
+#form-details .people {
+    width: 30%;
+    padding-top: 20px;
+    color: var(--primary-text); /* Creamy White */
+}
+
+#form-details .people div {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+#form-details .people div img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%; /* Circular images for a modern look */
+    margin-right: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#form-details .people div p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#form-details .people div span {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-accent); /* Matte Gold */
+}
+
+/* ===========================
+   Cart Page Styling
+=========================== */
+#cart {
+    overflow-x: auto;
+    padding: 20px;
+    background-color: var(--primary-bg); /* Matte Black */
+    color: var(--primary-text); /* Creamy White */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#cart table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+    background-color: var(--secondary-bg); /* Coffee Brown */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden;
+}
+
+#cart table img {
+    width: 70px;
+    border-radius: 4px; /* Rounded corners for images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#cart table td:nth-child(1),
+#cart table td:nth-child(2),
+#cart table td:nth-child(3),
+#cart table td:nth-child(4),
+#cart table td:nth-child(5),
+#cart table td:nth-child(6) {
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    color: var(--primary-text); /* Creamy White */
+    border-bottom: 1px solid var(--border-color); /* Light Gray */
+}
+
+#cart table td:nth-child(5) input {
+    width: 70px;
+    padding: 10px 5px;
+    border: 1px solid var(--border-color); /* Light Gray */
+    border-radius: 4px;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cart table td:nth-child(5) input:focus {
+    border-color: var(--primary-accent); /* Matte Gold */
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* Subtle glow effect */
+}
+
+#cart table thead {
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px 8px 0 0; /* Rounded corners for the top row */
+}
+
+#cart table thead td {
+    padding: 18px 0;
+}
+
+#cart table tbody tr:hover {
+    background-color: rgba(255, 212, 59, 0.1); /* Subtle highlight on hover */
+    transition: background-color 0.3s ease;
+}
+
+#cart-add {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Add spacing between coupon and subtotal sections */
+    margin-top: 20px;
+}
+
+/* ===========================
+   In-Cart Indicator Styling
+=========================== */
+#in-cart-indicator {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--success-color); /* Success Green */
+}
+
+/* ===========================
+   Coupon Section
+=========================== */
+#coupon {
+    width: 48%;
+    background-color: var(--secondary-bg); /* Coffee Brown */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#coupon h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 15px;
+}
+
+#coupon input {
+    width: 60%;
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color); /* Light Gray */
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#coupon input:focus {
+    border-color: var(--primary-accent); /* Matte Gold */
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* Subtle glow effect */
+}
+
+#coupon button {
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#coupon button:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* ===========================
+   Subtotal Section
+=========================== */
+#subtotal {
+    width: 48%;
+    background-color: var(--secondary-bg); /* Coffee Brown */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#subtotal h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+    margin-bottom: 15px;
+}
+
+#subtotal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#subtotal table td {
+    padding: 10px;
+    font-size: 14px;
+    color: var(--primary-text); /* Creamy White */
+    border-bottom: 1px solid var(--border-color); /* Light Gray */
+}
+
+#subtotal table td:last-child {
+    text-align: right;
+}
+
+#subtotal button {
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+#subtotal button:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* ===========================
+   Button Styles
+=========================== */
+button.normal {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+button.white {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 11px 18px;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* ===========================
+   Modal Card Style
+=========================== */
+.cart-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--primary-bg); /* Matte Black */
+    border: 1px solid var(--border-color); /* Light Gray */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    z-index: 1000;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    display: block; /* Ensure the modal is visible by default */
+    animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
+}
+
+.cart-modal.hidden {
+    display: none;
+}
+
+.cart-modal-content h4 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--highlight-color); /* White */
+}
+
+.cart-modal-content p {
+    font-size: 1rem;
+    color: var(--primary-text); /* Creamy White */
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.cart-modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add spacing between buttons */
+}
+
+.cart-modal-actions .btn {
+    padding: 12px 25px;
+    background-color: var(--primary-accent); /* Matte Gold */
+    border: none;
+    cursor: pointer;
+    color: var(--primary-bg); /* Matte Black */
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px; /* Rounded corners for buttons */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.cart-modal-actions .btn:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* ===========================
+   Fade-in Animation
+=========================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* ===========================
+   Message Container Styling
+=========================== */
+#message-container {
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#message-container.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+#message-container.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+/* ===========================
+   Checkout Page Styling
+=========================== */
+#checkout #checkout-form {
+    max-width: 700px; /* Slightly wider for better spacing */
+    margin: 50px auto;
+    background: var(--primary-bg); /* Matte Black */
+    padding: 30px;
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+    color: var(--primary-text); /* Creamy White */
+}
+
+#checkout h1 {
+    text-align: center;
+    color: var(--highlight-color); /* White */
+    font-size: 2rem; /* Larger font size for emphasis */
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+#checkout-form h3 {
+    margin-top: 20px;
+    color: var(--primary-accent); /* Matte Gold */
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+#checkout-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: var(--primary-text); /* Creamy White */
+    font-size: 1rem;
+}
+
+#checkout-form input,
+#checkout-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color); /* Light Gray */
+    border-radius: 6px; /* Slightly rounded corners */
+    font-size: 1rem;
+    background-color: var(--secondary-bg); /* Dark Gray */
+    color: var(--primary-text); /* Creamy White */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#checkout-form input:focus,
+#checkout-form select:focus {
+    border-color: var(--primary-accent); /* Matte Gold */
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5); /* Subtle glow effect */
+}
+
+#checkout-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-accent); /* Matte Gold */
+    border: none;
+    border-radius: 6px; /* Rounded corners for a modern look */
+    font-size: 1.125rem; /* Slightly larger font size */
+    font-weight: 700;
+    color: var(--primary-bg); /* Matte Black */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#checkout-form button:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+#checkout-form .form-group {
+    margin-bottom: 20px;
+}
+
+#checkout-form .form-group.inline {
+    display: flex;
+    gap: 20px; /* Add spacing between inline fields */
+}
+
+#checkout-form .form-group.inline input,
+#checkout-form .form-group.inline select {
+    flex: 1; /* Ensure equal width for inline fields */
+}
+
+/* ===========================
+    Thank You Section 
+=========================== */
+#page-header.thank-you-header {
+    position: relative;
+    background-image: url("images/logo0.png"); /* Use the correct path to your logo image */
+    width: 100%;
+    height: 90vh; /* Set the height to 90% of the viewport */
+    background-size: contain; /* Ensure the image is fully visible and maintains its aspect ratio */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#page-header.thank-you-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
+}
+
+#page-header.thank-you-header h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 3rem; /* Large heading */
+    font-weight: 700; /* Bold font */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Make the text uppercase */
+    color: var(--primary-accent); /* Matte Gold for the heading */
+}
+
+#page-header.thank-you-header p {
+    position: relative;
+    z-index: 2;
+    font-size: 1.5rem; /* Slightly smaller font for the subheading */
+    font-weight: 400; /* Normal font weight */
+    color: var(--primary-text); /* Creamy White for the subheading */
+    margin-top: 0;
+}
+
+#thank-you {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--primary-bg); /* Matte Black */
+    color: var(--primary-text); /* Creamy White */
+}
+
+#thank-you h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#thank-you p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+#thank-you .btn {
+    margin-top: 20px;
+}
+
+/* Recommendations Section */
+#recommendations {
+    text-align: center;
+    padding: 50px 20px;
+    /* background-color: var(--secondary-bg);  */
+    color: var(--primary-text); /* Creamy White */
+}
+
+#recommendations h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#recommendations p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.recommendation-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.recommendation-links .btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    background-color: var(--primary-accent); /* Matte Gold */
+    color: var(--primary-bg); /* Matte Black */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.recommendation-links .btn:hover {
+    background-color: var(--secondary-accent); /* Golden Beige */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ===========================
+   General Mobile Styles (Tablets and Smaller)
+=========================== */
+@media (max-width: 1024px) {
+    /* ===========================
+       Navbar
+    ============================ */
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: -10px;
+        right: -300px;
+        width: 250px;
+        height: 100vh;
+        background-color: rgba(26, 26, 26, 0.95); /* Matte Black with transparency */
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 20px;
+        transition: 0.4s;
+        z-index: 1000;
+    }
+
+    #navbar.active {
+        right: 0;
+    }
+
+    #navbar li {
+        margin-bottom: 25px; /* Increase spacing between list items */
+    }
+
+    #navbar li a {
+        text-decoration: none;
+        font-size: 18px; /* Increase font size for better readability */
+        font-weight: 700; /* Make the text bolder */
+        color: var(--primary-text); /* Creamy White */
+        padding: 10px 0; /* Add padding for a larger clickable area */
+        transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+        color: var(--primary-accent); /* Matte Gold */
+        transform: translateX(5px); /* Subtle slide effect on hover */
+    }
+
+    #navbar li a:hover::after,
+    #navbar li a.active::after {
+        content: "";
+        width: 40%; /* Increase underline width */
+        height: 2px;
+        background: var(--primary-accent); /* Matte Gold */
+        position: absolute;
+        bottom: -4px;
+        left: 0; /* Align underline with the text */
+        transition: width 0.3s ease; /* Smooth underline animation */
+    }
+
+    #header {
+        z-index: 999; /* Keep the header below the dropdown menu */
+    }
+
+    #mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    #mobile #bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1100; /* Ensure it stays above the dropdown menu */
+        position: relative; /* Position it relative to the navbar */
+    }
+
+    #mobile #bar span {
+        display: block;
+        height: 3px;
+        background: var(--primary-accent); /* Matte Gold */
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #mobile #bar.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #mobile #bar.open span:nth-child(2) {
+        opacity: 0; /* Hide the middle bar */
+    }
+
+    #mobile #bar.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ===========================
+       Hero Section
+    ============================ */
+    #hero {
+        height: 70vh;
+        padding: 0 20px;
+        background-position: center;
+    }
+
+    /* ===========================
+       Features Section
+    ============================ */
+    #features {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    #features .features-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* ===========================
+       Products Section
+    ============================ */
+    #products .prod-container {
+        justify-content: center;
+    }
+
+    #products .prod-card {
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    /* ===========================
+       Banner Section
+    ============================ */
+    #banner {
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #banner h4 {
+        font-size: 1rem;
+    }
+
+    #banner h2 {
+        font-size: 1.5rem;
+        line-height: 1.8;
+    }
+
+    #banner button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    /* ===========================
+       Small Banner Section
+    ============================ */
+    #sm-banner .banner-box {
+        width: 100%;
+        height: 30vh;
+        margin-bottom: 20px;
+    }
+
+    /* ===========================
+       Triple Banner Section
+    ============================ */
+    #triple-banner {
+        padding: 0 20px;
+    }
+
+    #triple-banner .banner-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* ===========================
+       Newsletter Section
+    ============================ */
+    #newsletter {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center align the content */
+        text-align: center; /* Center text content */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    #newsletter .form {
+        width: 100%; /* Make the form take full width */
+    }
+
+    /* Footer Menu - Stack Items */
+    footer .footer-container {
+        flex-direction: column; /* Stack footer columns vertically */
+        align-items: center; /* Center align the stacked items */
+        gap: 20px; /* Add spacing between stacked items */
+    }
+
+    footer .col {
+        width: 100%; /* Make each column take full width */
+        text-align: center; /* Center align the content */
+    }
+
+    /* Center "Follow Us" Links */
+    footer .social-icons {
+        display: flex;
+        justify-content: center; /* Center align the social icons */
+        align-items: center; /* Vertically align the icons */
+        gap: 10px; /* Add spacing between social icons */
+        margin-top: 20px; /* Add spacing above the social icons */
+    }
+
+    /* ===========================
+       Contact Page
+    ============================ */
+    /* Contact Page - Map Full Width */
+    #contact-details .map {
+        width: 100%; /* Make the map take full width */
+        margin-top: 20px; /* Add spacing above the map */
+    }
+
+    #contact-details {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center align the content */
+        text-align: center; /* Center text content */
+    }
+
+    #contact-details .details {
+        width: 100%; /* Ensure it takes full width */
+        margin-bottom: 20px;
+        text-align: center; /* Center align the text inside */
+    }
+
+    #contact-details .details div {
+        display: flex;
+        flex-direction: column; /* Stack the list items vertically */
+        align-items: center; /* Center align the list items */
+        gap: 10px; /* Add spacing between the list items */
+    }
+
+    #contact-details .details li {
+        justify-content: center; /* Center align the content inside each list item */
+    }
+
+    #form-details {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #form-details form {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #form-details .people {
+        width: 100%; /* Take full width */
+        display: flex;
+        flex-direction: column; /* Stack the people vertically */
+        align-items: center; /* Center align the content */
+        padding-top: 20px;
+        color: var(--primary-text); /* Creamy White */
+        margin-top: 20px; /* Add spacing above the people section */
+        gap: 20px; /* Add spacing between each person */
+    }
+    
+    #form-details .people div {
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center align each person's content */
+        text-align: center; /* Center align text */
+        margin-bottom: 25px;
+    }
+
+    /* ===========================
+       Cart Page
+    ============================ */
+    #cart {
+        padding: 20px;
+    }
+
+    #cart table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto; /* Allow table to adjust to screen size */
+    }
+
+    #cart table td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    #cart table img {
+        width: 50px;
+    }
+
+    #cart-add {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #coupon,
+    #subtotal {
+        width: 100%;
+    }
+
+    #subtotal button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    /* ===========================
+       Checkout Page
+    ============================ */
+    #checkout {
+        padding: 20px;
+    }
+
+    #checkout-form {
+        width: 100%;
+    }
+
+    #checkout-form button {
+        font-size: 14px;
+    }
+}
+
+/* ===========================
+   Tablet Portrait Mode and Smaller
+=========================== */
+@media (max-width: 768px) {
+    /* ===========================
+       Header
+    ============================ */
+    #header {
+        padding: 10px 20px;
+    }
+
+    /* ===========================
+       Hero Section
+    ============================ */
+    #hero {
+        height: auto; /* Allow the height to adjust based on content */
+        padding: 20px; /* Add padding for better spacing */
+        background-position: center;
+    }
+
+    #hero h4 {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        margin-bottom: 10px;
+    }
+
+    #hero h2 {
+        font-size: 36px; /* Reduce font size for better fit */
+        margin-bottom: 10px;
+    }
+
+    #hero h1 {
+        font-size: 48px; /* Reduce font size for better fit */
+        margin-bottom: 15px;
+    }
+
+    #hero p {
+        font-size: 16px; /* Adjust font size for readability */
+        margin-bottom: 20px;
+        line-height: 1.4; /* Adjust line height for better spacing */
+    }
+
+    #hero button {
+        font-size: 14px; /* Adjust button font size */
+        padding: 10px 20px; /* Adjust button padding */
+    }
+
+    /* ===========================
+       Features Section
+    ============================ */
+    #features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #features .features-box {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* ===========================
+       Products Section
+    ============================ */
+    #products .prod-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #prod-details {
+        flex-direction: column; /* Stack the image and details vertically */
+        gap: 30px; /* Reduce the gap for smaller screens */
+    }
+
+    #prod-details .single-prod-image {
+        width: 100%; /* Allow the main image to take full width */
+    }
+
+    .small-images-group {
+        justify-content: center; /* Center align the small images */
+        gap: 10px; /* Add spacing between small images */
+    }
+
+    .small-image-col {
+        flex: 1 1 calc(33.33% - 10px); /* Adjust size for smaller screens */
+        max-width: calc(33.33% - 10px); /* Limit the width of each small image */
+    }
+
+    /* ===========================
+       Banner Section
+    ============================ */
+    #banner {
+        height: 40vh;
+    }
+
+    /* ===========================
+       Small Banner Section
+    ============================ */
+    #sm-banner .banner-box {
+        height: 40vh;
+        margin-bottom: 20px;
+    }
+
+    /* ===========================
+       Triple Banner Section
+    ============================ */
+    #triple-banner {
+        padding: 0 15px;
+    }
+
+    #triple-banner .banner-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* ===========================
+       Blog Page
+    ============================ */
+    #blog {
+        padding: 20px;
+    }
+
+    #blog .blog-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #blog .blog-image {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #blog .blog-details {
+        width: 100%;
+    }
+
+    /* ===========================
+       About Page
+    ============================ */
+    #about-head {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #about-head img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #about-head div {
+        padding: 0;
+    }
+
+    /* ===========================
+       Cart Page
+    ============================ */
+    #cart-add {
+        flex-direction: column;
+    }
+
+    #coupon,
+    #subtotal {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* ===========================
+       Checkout Page
+    ============================ */
+    #checkout {
+        padding: 20px; /* Add padding for better spacing */
+    }
+
+    #checkout #checkout-form {
+        max-width: 100%; /* Allow the form to take full width */
+        padding: 20px; /* Reduce padding for smaller screens */
+        border-radius: 8px; /* Slightly smaller rounded corners */
+    }
+
+    #checkout h1 {
+        font-size: 1.5rem; /* Reduce font size for smaller screens */
+        margin-bottom: 20px;
+    }
+
+    #checkout-form h3 {
+        font-size: 1.125rem; /* Slightly smaller font size */
+        margin-bottom: 10px;
+    }
+
+    #checkout-form label {
+        font-size: 0.9rem; /* Reduce font size for labels */
+        margin: 8px 0 5px;
+    }
+
+    #checkout-form input,
+    #checkout-form select {
+        font-size: 0.9rem; /* Reduce font size for inputs */
+        padding: 10px; /* Reduce padding for inputs */
+    }
+
+    #checkout-form button {
+        font-size: 1rem; /* Slightly smaller font size for the button */
+        padding: 12px; /* Reduce padding for the button */
+    }
+
+    #checkout-form .form-group.inline {
+        flex-direction: column; /* Stack inline fields vertically */
+        gap: 10px; /* Add spacing between stacked fields */
+    }
+}
+
+/* ===========================
+   Smartphones and Smaller
+=========================== */
+@media (max-width: 480px) {
+    /* ===========================
+       General Typography
+    ============================ */
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    /* ===========================
+       Section Padding
+    ============================ */
+    .section-padding1 {
+        padding: 15px;
+    }
+
+    /* ===========================
+       Header
+    ============================ */
+    #header {
+        padding: 10px 15px;
+    }
+
+    /* ===========================
+       Hero Section
+    ============================ */
+    #hero {
+        height: auto; /* Allow the height to adjust based on content */
+        padding: 15px; /* Add padding for better spacing */
+        background-position: center;
+    }
+
+    #hero h4 {
+        font-size: 14px; /* Further reduce font size */
+        margin-bottom: 8px;
+    }
+
+    #hero h2 {
+        font-size: 28px; /* Reduce font size for smaller screens */
+        margin-bottom: 8px;
+    }
+
+    #hero h1 {
+        font-size: 36px; /* Reduce font size for smaller screens */
+        margin-bottom: 10px;
+    }
+
+    #hero p {
+        font-size: 14px; /* Adjust font size for readability */
+        margin-bottom: 15px;
+        line-height: 1.4; /* Adjust line height for better spacing */
+    }
+
+    #hero button {
+        font-size: 12px; /* Adjust button font size */
+        padding: 8px 15px; /* Adjust button padding */
+    }
+
+    /* ===========================
+       Features Section
+    ============================ */
+    #features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #features .features-box {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* ===========================
+       Products Section
+    ============================ */
+    #products .prod-card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .small-image-col {
+        flex: 1 1 calc(50% - 10px); /* Adjust size for very small screens */
+        max-width: calc(50% - 10px); /* Limit the width of each small image */
+    }
+
+    /* ===========================
+       Banner Section
+    ============================ */
+    #banner {
+        height: 30vh;
+    }
+
+    /* ===========================
+       Small Banner Section
+    ============================ */
+    #sm-banner .banner-box {
+        height: 30vh;
+        margin-bottom: 15px;
+    }
+
+    /* ===========================
+       Triple Banner Section
+    ============================ */
+    #triple-banner {
+        padding: 0 10px;
+    }
+
+    #triple-banner .banner-box {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* ===========================
+       Newsletter Section
+    ============================ */
+    #newsletter {
+        padding: 15px;
+    }
+
+    #newsletter .form {
+        width: 100%;
+    }
+
+    /* ===========================
+       Blog Page
+    ============================ */
+    #blog {
+        padding: 15px;
+    }
+
+    #blog .blog-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #blog .blog-image {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #blog .blog-details {
+        width: 100%;
+    }
+
+    /* ===========================
+       About Page
+    ============================ */
+    #about-head {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #about-head img {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #about-head div {
+        padding: 0;
+    }
+
+    /* ===========================
+       Contact Page
+    ============================ */
+    #contact-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #contact-details .details {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #contact-details .map {
+        width: 100%;
+    }
+
+    /* ===========================
+       Cart Page
+    ============================ */
+    #cart-add {
+        flex-direction: column;
+    }
+
+    #coupon,
+    #subtotal {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* ===========================
+       Checkout Page
+    ============================ */
+    #checkout {
+        padding: 15px; /* Further reduce padding for very small screens */
+    }
+
+    #checkout #checkout-form {
+        padding: 15px; /* Reduce padding for the form */
+    }
+
+    #checkout h1 {
+        font-size: 1.25rem; /* Further reduce font size */
+    }
+
+    #checkout-form h3 {
+        font-size: 1rem; /* Further reduce font size */
+    }
+
+    #checkout-form label {
+        font-size: 0.8rem; /* Further reduce font size for labels */
+    }
+
+    #checkout-form input,
+    #checkout-form select {
+        font-size: 0.8rem; /* Further reduce font size for inputs */
+        padding: 8px; /* Further reduce padding for inputs */
+    }
+
+    #checkout-form button {
+        font-size: 0.9rem; /* Further reduce font size for the button */
+        padding: 10px; /* Further reduce padding for the button */
+    }
+}

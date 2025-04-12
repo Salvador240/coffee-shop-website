@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Golden Bull Coffee | Cart</title>
+        <link rel="stylesheet" href="coffeeShop.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/69b72c9ece.js" crossorigin="anonymous"></script>
+        <meta name="description" content="Review your selected coffee products and proceed to checkout for a seamless shopping experience.">
+        <meta name="keywords" content="coffee cart, coffee checkout, buy coffee online, coffee shop">
+        <meta name="author" content="SuperbWebDev">
+    </head>
+
+<body>
+
+    <section id="page-header" class="cart-header">
+        <h2>#Let's Checkout</h2>
+        <p>Thanks in advance</p>
+    </section>
+
+    <div id="message-container"></div>
+
+    <section id="cart" class="section-padding1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+
+            <tbody id="cart-items">
+                <!-- Cart items will be dynamically generated here -->
+            </tbody>
+        </table>
+    </section>
+
+    <section id="cart-add" class="section-padding1">
+        <div id="coupon">
+            <h3>Apply Coupon</h3>
+            <div>
+                <input type="text" id="coupon-code" placeholder="Enter your coupon">
+                <button class="normal" id="apply-coupon">Apply</button>
+            </div>
+        </div>
+
+        <div id="subtotal">
+            <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td id="cart-subtotal">$0.00</td>
+                </tr>
+                <tr>
+                    <td>Coupon Discount</td>
+                    <td id="coupon-discount">-$0.00</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td id="shipping-cost">Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td id="cart-total"><strong>$0.00</strong></td>
+                </tr>
+            </table>
+            <button class="normal" id="proceed-to-checkout">Proceed To Checkout</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
